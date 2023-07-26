@@ -1,0 +1,159 @@
+a5380ee
+Eliciting Requirements
+
+2efcde9
+What is requirement elicitation?
+option dabfac4: The process of discovering, identifying, and documenting requirements
+option: The process of prioritizing requirements
+option: The process of testing requirements
+option: The process of designing requirements
+
+b94d27b
+Requirement elicitation is the process of verifying requirements.
+option: True
+option dabfac4: False
+
+2efcde9
+What are the various techniques for requirement elicitation?
+option: Analysis of existing documentation
+option: Surveys
+option: Interviews
+option dabfac4: All of the above
+
+88f7ace
+Describe the benefits and drawbacks of using surveys for requirement elicitation.
+
+2efcde9
+What are the best practices for conducting requirement elicitation meetings?
+option: Invite only a few stakeholders
+option: Set an agenda and stick to it
+option: Don't take notes during the meeting
+option dabfac4: All of the above
+
+a5380ee
+Requirements Analysis
+
+2efcde9
+What is requirements analysis?
+option: The process of prioritizing requirements
+option dabfac4: The process of examining requirements to ensure they are complete, consistent, and unambiguous
+option: The process of verifying requirements
+option: The process of testing requirements
+
+b94d27b
+Requirements analysis ensures that requirements are complete, consistent, and unambiguous.
+option dabfac4: True
+option: False
+
+2efcde9
+What are the different types of requirements?
+option dabfac4: Functional and non-functional
+option: Critical and non-critical
+option: Easy and hard
+option: Important and unimportant
+
+88f7ace
+What is the difference between functional and non-functional requirements? Provide examples of each.
+
+2efcde9
+What are the common techniques used for requirements analysis?
+option: Use cases
+option: State diagrams
+option: Data flow diagrams
+option dabfac4: All of the above
+
+a5380ee
+Eliciting Requirements
+
+2efcde9
+What is requirement elicitation?
+option dabfac4: The process of discovering, identifying, and documenting requirements
+option: The process of prioritizing requirements
+option: The process of testing requirements
+option: The process of designing requirements
+
+b94d27b
+Requirement elicitation is the process of verifying requirements.
+option: True
+option dabfac4: False
+
+2efcde9
+What are the various techniques for requirement elicitation?
+option: Analysis of existing documentation
+option: Surveys
+option: Interviews
+option dabfac4: All of the above
+
+88f7ace
+Describe the benefits and drawbacks of using surveys for requirement elicitation.
+
+2efcde9
+What are the best practices for conducting requirement elicitation meetings?
+option: Invite only a few stakeholders
+option: Set an agenda and stick to it
+option: Don't take notes during the meeting
+option dabfac4: All of the above
+
+a5380ee
+Requirements Analysis
+
+2efcde9
+What is requirements analysis?
+option: The process of prioritizing requirements
+option dabfac4: The process of examining requirements to ensure they are complete, consistent, and unambiguous
+option: The process of verifying requirements
+option: The process of testing requirements
+
+b94d27b
+Requirements analysis ensures that requirements are complete, consistent, and unambiguous.
+option dabfac4: True
+option: False
+
+2efcde9
+What are the different types of requirements?
+option dabfac4: Functional and non-functional
+option: Critical and non-critical
+option: Easy and hard
+option: Important and unimportant
+
+88f7ace
+What is the difference between functional and non-functional requirements? Provide examples of each.
+
+2efcde9
+What is requirements validation?
+option: The process of prioritizing requirements
+option: The process of examining requirements to ensure they are complete, consistent, and unambiguous
+option dabfac4: The process of evaluating requirements to ensure that they meet the needs of stakeholders
+option: The process of testing requirements
+
+a5380ee
+Requirements Specification
+
+2efcde9
+What is requirements specification?
+option dabfac4: The process of documenting requirements
+option: The process of prioritizing requirements
+option: The process of testing requirements
+option: The process of verifying requirements
+
+b94d27b
+Requirements specification is the process of documenting requirements.
+option dabfac4: True
+option: False
+
+2efcde9
+What are the characteristics of a good requirements specification?
+option: Ambiguity
+option dabfac4: Completeness, consistency, unambiguity, testability, and traceability
+option: Incompleteness
+option: Unambiguity
+
+88f7ace
+What is traceability in requirements specification? Why is it important?
+
+2efcde9
+What are the different types of requirements documents?
+option: Technical specifications
+option: User manuals
+option: Help files
+option dabfac4: All of the above

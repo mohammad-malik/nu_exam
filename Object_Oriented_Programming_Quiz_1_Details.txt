@@ -1,0 +1,52 @@
+QuizID: 1
+Course: Object Oriented Programming
+Instructor: Adil Majeed
+Duration: 60
+TotalMarks: 100
+TotalQuestions: 10
+
+Questions:
+
+MCQ: Which keyword is used to overload a method in Java?
+Option 1: overload
+Option 2: override
+Option 3: public
+Option 4: private
+Correct Answer: public
+
+MCQ: Which type of inheritance allows a class to inherit from multiple classes?
+Option 1: Single Inheritance
+Option 2: Multiple Inheritance
+Option 3: Hierarchical Inheritance
+Option 4: Hybrid Inheritance
+Correct Answer: Multiple Inheritance
+
+MCQ: Which of the following is an example of an object in Object-Oriented Programming?
+Option 1: Integer
+Option 2: String
+Option 3: Person
+Option 4: Boolean
+Correct Answer: Person
+
+MCQ: Which feature of Object-Oriented Programming allows a class to inherit properties from another class?
+Option 1: Inheritance
+Option 2: Polymorphism
+Option 3: Encapsulation
+Option 4: Abstraction
+Correct Answer: Inheritance
+
+TrueFalse: The final block is always executed, regardless of whether an exception is thrown or not.
+Correct Answer: True
+
+TrueFalse: Method overriding involves creating a new method in the subclass that has the same name and parameters as a method in its superclass.
+Correct Answer: True
+
+TrueFalse: A constructor is a method that gets called automatically when an object of a class is created.
+Correct Answer: True
+
+TrueFalse: An abstract class can be instantiated.
+Correct Answer: False
+
+Subjective: What is polymorphism in Object-Oriented Programming?
+
+Subjective: Explain the concept of encapsulation and how it is implemented in a class.
