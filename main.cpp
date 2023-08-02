@@ -1,16 +1,26 @@
-#include "dependencies/classes.h"
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <ctime>
+#include <chrono>
+#include <vector>
+#include "Classes.h"
+using namespace std;
+
 // TODO: analytics
 
 int main()
 {
+
+    
     // Creating logins
     srand(time(NULL));
     generateStudentLogins();
     generateTeacherLogins();
 
     // Loading teachers and students
-    string TeacherDataFileName = "data/Teacher_Details.csv";
-    string StudentDataFileName = "data/Student_Logins.csv";
+    string TeacherDataFileName = "requiredFiles/Teacher_Details.csv";
+    string StudentDataFileName = "requiredFiles/Student_Logins.csv";
     
     // Creating quiz object for if teacher wants to create a quiz
     Course loggedInTeacherCourse;
