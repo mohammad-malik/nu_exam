@@ -1,0 +1,121 @@
+a5380ee
+Machine Learning
+
+2efcde9
+Which of the following is NOT a type of supervised learning algorithm?
+option: Linear regression
+option dabfac4: K-means clustering
+option: Decision trees
+option: Neural networks
+
+b94d27b
+In machine learning, overfitting occurs when a model performs well on the training data but poorly on the test data
+option dabfac4: True
+option: False
+
+2efcde9
+Which of the following is an example of logarithmic time complexity?
+option dabfac4: O(log n) 
+option: O(n)
+option: O(n log n)
+option: O(n^2)
+
+88f7ace
+Explain the concept of cross-validation in machine learning. How is it useful in preventing overfitting?
+
+88f7ace
+What is the difference between batch gradient descent and stochastic gradient descent in machine learning? In which scenarios would you prefer one over the other?
+
+88f7ace
+Explain the bias-variance tradeoff in machine learning. How can you find the optimal balance between bias and variance in a model?
+
+a5380ee
+Natural Language Processing
+
+2efcde9
+Which of the following is a common preprocessing step in natural language processing?
+option: Feature engineering
+option: Gradient descent
+option dabfac4: Tokenization
+option: Reinforcement learning
+
+b94d27b
+Named entity recognition is the task of identifying the named entities in a text and classifying them into predefined categories such as person, organization, and location.
+option dabfac4: True
+option: False
+
+88f7ace
+Explain the concept of stemming in natural language processing. What are some common stemming algorithms used in practice?
+
+88f7ace
+What are n-grams in natural language processing? How can you use them to build language models?
+
+88f7ace
+Explain the difference between Bag-of-Words and TF-IDF in natural language processing. In which scenarios would you prefer one over the other?
+
+a5380ee
+Computer Vision
+
+2efcde9
+Which of the following is NOT a common task in computer vision?
+option: Object detection
+option dabfac4: Speech recognition
+option: Image segmentation
+option: Optical character recognition
+
+b94d27b
+Convolutional neural networks are a type of neural network commonly used in computer vision tasks.
+option dabfac4: True
+option: False
+
+88f7ace
+Explain the concept of image segmentation in computer vision. How can you use it to extract meaningful information from images?
+
+88f7ace
+What is transfer learning in computer vision? How can you use pre-trained models to improve the performance of your own model?
+
+88f7ace
+Explain the difference between mean pooling and max pooling in convolutional neural networks. In which scenarios would you prefer one over the other?
+
+a5380ee
+Reinforcement Learning
+
+2efcde9
+Which of the following is a common task in reinforcement learning?
+option: Image classification
+option: Object detection
+option: Text classification
+option dabfac4: Game playing
+
+b94d27b
+In reinforcement learning, the agent learns to take actions based on feedback in the form of rewards or punishments.
+option dabfac4: True
+option: False
+
+88f7ace
+Explain the concept of value function in reinforcement learning. How can you use it to evaluate the quality of an action in a given state?
+
+88f7ace
+What is Q-learning in reinforcement learning? How can you use it to learn an optimal policy for a given environment?
+
+88f7ace
+Explain the difference between on-policy and off-policy learning in reinforcement learning. In which scenarios would you prefer one over the other?
+
+a5380ee
+Deep Learning
+
+2efcde9
+Which of the following is a common activation function used in deep learning?
+option dabfac4: Sigmoid
+option: Heaviside step function
+option: Exponential
+option: Quadratic
+
+88f7ace
+Explain the concept of backpropagation in deep learning. How does it help in training deep neural networks?
+
+88f7ace
+What are dropout layers in deep learning? How can you use them to prevent overfitting?
+
+88f7ace
+Explain the difference between transfer learning and fine-tuning in deep learning. In which scenarios would you prefer one over the other?

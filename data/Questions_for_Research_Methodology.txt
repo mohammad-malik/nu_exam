@@ -1,0 +1,159 @@
+a5380ee
+Research Design
+
+2efcde9
+Which of the following is a type of research design?
+option: Experimental
+option: Descriptive
+option dabfac4: All of the above
+option: None of the above
+
+b94d27b
+A research design is the blueprint for conducting a study.
+option dabfac4: True
+option: False
+
+2efcde9
+Which of the following is not a type of non-experimental research design?
+option: Correlational
+option: Quasi-experimental
+option dabfac4: Experimental
+option: None of the above
+
+88f7ace
+What are the advantages and disadvantages of using a cross-sectional research design in a study? Provide examples.
+
+2efcde9
+Which of the following is a type of experimental research design?
+option dabfac4: Pretest-posttest control group design
+option: Case study design
+option: Survey research design
+option: None of the above
+
+a5380ee
+Sampling Methods
+
+2efcde9
+Which of the following is a probability sampling technique?
+option: Convenience sampling
+option: Snowball sampling
+option dabfac4: Simple random sampling
+option: Quota sampling
+
+2efcde9
+Which of the following is a non-probability sampling technique?
+option: Stratified random sampling
+option dabfac4: Purposive sampling
+option: Cluster sampling
+option: All of the above
+
+b94d27b
+Random sampling ensures that the sample is representative of the population.
+option dabfac4: True
+option: False
+
+2efcde9
+Which of the following is not a type of non-probability sampling technique?
+option: Convenience sampling
+option: Snowball sampling
+option: Stratified random sampling
+option dabfac4: Quota sampling
+
+88f7ace
+What are the advantages and disadvantages of using purposive sampling in a study? Provide examples.
+
+a5380ee
+Data Collection Methods
+
+2efcde9
+Which of the following is a primary data collection method?
+option dabfac4: Survey
+option: Secondary data analysis
+option: Review of literature
+option: All of the above
+
+b94d27b
+Interviews and questionnaires are two common methods of collecting primary data.
+option dabfac4: True
+option: False
+
+2efcde9
+Which of the following is not a type of questionnaire?
+option: Structured questionnaire
+option dabfac4: Semi-structured questionnaire
+option: Unstructured questionnaire
+option: None of the above
+
+2efcde9
+Which of the following is not a type of interview?
+option: Structured interview
+option: Semi-structured interview
+option: Unstructured interview
+option dabfac4: All of the above are types of interviews
+
+88f7ace
+What are the advantages and disadvantages of using secondary data in a study? Provide examples.
+
+a5380ee
+Introduction to Research Methodology
+
+2efcde9
+Which of the following is a descriptive statistics method?
+option: Hypothesis testing
+option dabfac4: Measures of central tendency
+option: Regression analysis
+option: None of the above
+
+2efcde9
+Which of the following is not a step in the scientific method?
+option: Hypothesis development
+option: Data analysis
+option: Literature review
+option dabfac4: None of the above
+
+b94d27b
+Quantitative research involves the collection of non-numerical data.
+option: True
+option dabfac4: False
+
+2efcde9
+Which of the following is an example of a non-probability sampling technique?
+option: Random sampling
+option: Stratified sampling
+option dabfac4: Convenience sampling
+option: Systematic sampling
+
+88f7ace
+What is the importance of establishing a research question in research methodology? Please provide at least three reasons to support your answer.
+
+a5380ee
+Research Design
+
+2efcde9
+What is the purpose of a research design?
+option dabfac4: To provide a blueprint for conducting a research study
+option: To ensure that the research is conducted in a fair and unbiased manner
+option: To ensure that the research is conducted using the most advanced technology available
+option: To ensure that the research is conducted as quickly as possible
+
+b94d27b
+The case study research method is most appropriate when the research question involves a "how" or "why" question.
+option: True
+option dabfac4: False
+
+2efcde9
+Which of the following is a limitation of the cross-sectional research design?
+option: It is time-consuming
+option dabfac4: It cannot establish causality
+option: It is expensive to implement
+option: It is not appropriate for quantitative data
+
+88f7ace
+What are the advantages and disadvantages of using a longitudinal research design? Please provide at least three advantages and three disadvantages.
+
+2efcde9
+Which of the following is a characteristic of a quasi-experimental research design?
+option: It involves random assignment of participants to groups
+option: It includes a control group
+option dabfac4: It lacks randomization
+option: It is the same as an experimental research design
