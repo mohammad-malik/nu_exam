@@ -1,6 +1,0 @@
-19I-1961
-QuizID: 1
-TotalMarks: 100/40
-19I-1961
-QuizID: 1
-Marks: 40/100

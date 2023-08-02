@@ -1,7 +1,61 @@
-#include "passwordFieldClass.h"
-#include "Functions.h"
-#include <vector>
-#include <algorithm>
+#include "student_teacher_dependencies.h"
+
+// classes and functions using them
+class PasswordField
+{
+private:
+    const string placeholder;       // the placeholder to be shown when user is not typing
+    const int precedings;           // the number of characters to be erased before the placeholder (always the number of characters in the placeholder except the last one)
+    const int trailers;             // the number of characters to be erased after the placeholder (always 1)
+
+    // Reprinting the placeholder
+    void refreshPlaceholder()
+    {
+        // Erasing the placeholder and the input before it by moving the cursor
+        for (int i = 0; i != precedings; ++i)
+            cout << '\b';
+
+        cout << placeholder;
+        
+        // Erasing the input after the placeholder by moving the cursor
+        for (int i = 0; i != trailers; ++i)
+            cout << '\b';
+
+        // Flushing the output buffer to make the changes visible to the user
+        cout << flush;
+    }
+
+public:
+    // Constructor set to default values as this is always the same
+    PasswordField(): placeholder("* Press the enter to confirm "), precedings(placeholder.size() - 1), trailers(1) {}
+
+    // Overloading the getline function for the PasswordField class
+    string getline()
+    {
+        // Creating a 'future' typecast to string to listen to the user input 'asynchronously' meaning that the program will not wait for the user to enter the input and will continue executing the code
+        future<string> listener = 
+        async([]()
+            {
+                string answer;
+                std::getline(cin, answer);
+                return answer; 
+            });
+
+        // Printing the placeholder
+        for (int i = 0; i != precedings; ++i)
+            cout << placeholder[i];
+
+        // Flushing the output buffer to make the changes visible to the user
+        cout << flush;
+
+        // Waiting for the user to enter the input and then refreshing the placeholder to hide the input with asterisks
+        while (listener.wait_for(chrono::milliseconds(10)) != future_status::ready)
+            refreshPlaceholder();
+
+        // Returning the user input after the placeholder is refreshed
+        return listener.get();
+    }
+};
 
 class Time
 {
@@ -103,6 +157,44 @@ public:
         return false;
     }
 };
+
+ostream &operator<<(ostream &output, const Time &timeToOutput)
+{
+    output << timeToOutput.hour << ":";
+    if (timeToOutput.minute < 10)
+        output << "0";
+
+    output << timeToOutput.minute;
+    return output;
+}
+istream &operator>>(istream &input, Time &timeToInput)
+{
+    cout << "Enter hours: ";
+    input >> timeToInput.hour;
+    cout << "Enter minutes: ";
+    input >> timeToInput.minute;
+
+    // Input validation
+    while (timeToInput.hour < 0 || timeToInput.hour > 23)
+    {
+        cout << "Invalid hour!" << endl;
+        input >> timeToInput.hour;
+    }
+    while (timeToInput.minute < 0)
+    {
+        cout << "Invalid minute!" << endl;
+        input >> timeToInput.minute;
+    }
+
+    // Adjusting the time for correctness
+    if (timeToInput.minute > 59)
+    {
+        timeToInput.hour++;
+        timeToInput.minute -= 60;
+    }
+
+    return input;
+}
 
 class User
 {
@@ -794,66 +886,9 @@ public:
 };
 int Quiz::quizCount = 0;
 
-string findCourseTeacher(string courseName)
-{
-    ifstream inputFile("requiredFiles/Teacher_Details.csv");
-    string line;
-    vector<vector<string>> fileContents;
-    while (getline(inputFile, line))
-    {
-        stringstream lineStream(line);
-        string cell;
-        vector<string> row;
+string findCourseTeacher(string courseName);
 
-        while (getline(lineStream, cell, ','))
-            row.push_back(cell);
-
-        fileContents.push_back(row);
-    }
-    inputFile.close();
-
-    for (int i = 0; i < fileContents.size(); i++)
-    {
-        if (fileContents[i][2] == courseName)
-            return fileContents[i][1];
-    }
-    return "Not Found";
-}
-
-vector<string> findStudentsInCourse(string courseToCheck)
-{
-    // Reading Course Registration File and storing into 2D vector
-    ifstream inputFile("requiredFiles/Course_Registration_Data_Sheet.csv");
-    string line;
-    vector<vector<string>> fileContents;
-    while (getline(inputFile, line))
-    {
-        stringstream lineStream(line);
-        string cell;
-        vector<string> row;
-
-        while (getline(lineStream, cell, ','))
-            row.push_back(cell);
-
-        fileContents.push_back(row);
-    }
-    inputFile.close();
-
-    // Finding the course and storing the students in a string vector
-    vector<string> studentRollNumbers;
-    for (int i = 3; i < fileContents[0].size(); i++)
-    {
-        if (fileContents[0][i] == courseToCheck)
-        {
-            for (int j = 0; j < fileContents.size(); j++)
-            {
-                if (fileContents[j][i] == "1")
-                    studentRollNumbers.push_back(fileContents[j][1]);
-            }
-        }
-    }
-    return studentRollNumbers;
-}
+vector<string> findStudentsInCourse(string courseToCheck);
 
 class Course
 {
@@ -1257,7 +1292,7 @@ public:
     void overwritePassword(string password)
     {
         ifstream readFile;
-        readFile.open("requiredFiles/Teacher_Details.csv", ios::in);
+        readFile.open("data/Teacher_Details.csv", ios::in);
 
         if (!readFile)
         {
@@ -1289,7 +1324,7 @@ public:
 
         // Writing the file with the new password
         ofstream writeFile;
-        writeFile.open("requiredFiles/Teacher_Details.csv", ios::out);
+        writeFile.open("data/Teacher_Details.csv", ios::out);
 
         for (int i = 0; i < sizeOfVector; i++)
             writeFile << fileContents[i] << endl;
@@ -1327,7 +1362,7 @@ public:
         }
 
         ifstream readFile;
-        string fileName = "requiredFiles/Questions_for_" + courseName + ".txt";
+        string fileName = "data/Questions_for_" + courseName + ".txt";
         readFile.open(fileName, ios::in);
 
         if (!readFile)
@@ -1612,7 +1647,7 @@ public:
     void overwritePassword(string password)
     {
         ifstream readFile;
-        readFile.open("requiredFiles/Student_Logins.csv", ios::in);
+        readFile.open("data/Student_Logins.csv", ios::in);
 
         if (!readFile)
         {
@@ -1644,7 +1679,7 @@ public:
 
         // Writing the file with the new password
         ofstream writeFile;
-        writeFile.open("requiredFiles/Student_Logins.csv", ios::out);
+        writeFile.open("data/Student_Logins.csv", ios::out);
 
         for (int i = 0; i < sizeOfVector; i++)
             writeFile << fileContents[i] << endl;
@@ -1683,6 +1718,7 @@ public:
     }
 };
 
+// other function definitions
 void allocateQuizQuestions(Course &courseOfQuiz, Quiz &quizToAllocate)
 {
     // Getting all subtopics from the questions as they store the subtopic name
@@ -1771,24 +1807,33 @@ void allocateQuizQuestions(Course &courseOfQuiz, Quiz &quizToAllocate)
 
     for (int i = 0; i < mcqsToStore; i++)
     {
-        int randomIndex = rand() % availableMCQsCount;
-        quizToAllocate.addMCQ(mcqQuestions[randomIndex]);
-        availableMCQsCount--;
-        mcqQuestions[randomIndex] = mcqQuestions[availableMCQsCount];
+        if (availableMCQsCount != 0)
+        {
+            int randomIndex = rand() % availableMCQsCount;
+            quizToAllocate.addMCQ(mcqQuestions[randomIndex]);
+            availableMCQsCount--;
+            mcqQuestions[randomIndex] = mcqQuestions[availableMCQsCount];
+        }
     }
     for (int i = 0; i < tfsToStore; i++)
     {
-        int randomIndex = rand() % availableTFsCount;
-        quizToAllocate.addTF(tfQuestions[randomIndex]);
-        availableTFsCount--;
-        tfQuestions[randomIndex] = tfQuestions[availableTFsCount];
+        if (availableTFsCount != 0)
+        {
+            int randomIndex = rand() % availableTFsCount;
+            quizToAllocate.addTF(tfQuestions[randomIndex]);
+            availableTFsCount--;
+            tfQuestions[randomIndex] = tfQuestions[availableTFsCount];
+        }
     }
     for (int i = 0; i < subjectivesToStore; i++)
     {
-        int randomIndex = rand() % AvailableSubjectivesCount;
-        quizToAllocate.addSubjective(subjectiveQuestions[randomIndex]);
-        AvailableSubjectivesCount--;
-        subjectiveQuestions[randomIndex] = subjectiveQuestions[AvailableSubjectivesCount];
+        if (AvailableSubjectivesCount != 0)
+        {
+            int randomIndex = rand() % AvailableSubjectivesCount;
+            quizToAllocate.addSubjective(subjectiveQuestions[randomIndex]);
+            AvailableSubjectivesCount--;
+            subjectiveQuestions[randomIndex] = subjectiveQuestions[AvailableSubjectivesCount];
+        }
     }
     quizToAllocate.updateTotalMCQQuestions();
     quizToAllocate.updateTotalTFQuestions();
@@ -1796,11 +1841,10 @@ void allocateQuizQuestions(Course &courseOfQuiz, Quiz &quizToAllocate)
     quizToAllocate.updateTotalQuestions();
     quizToAllocate.updateMarksPerQuestion();
 }
-
 int courseCounter()
 {
     // Opening the file
-    string fileName = "requiredFiles/Course_Registration_Data_Sheet.csv";
+    string fileName = "data/Course_Registration_Data_Sheet.csv";
     ifstream inputFile(fileName);
 
     // Getting the first line of the file
@@ -1833,7 +1877,7 @@ int courseCounter()
 Course *coursesRegistered(string rollNumber, int &registeredCount)
 {
     // Storing file contents in a vector temporarily
-    ifstream inputFile("requiredFiles/Course_Registration_Data_Sheet.csv");
+    ifstream inputFile("data/Course_Registration_Data_Sheet.csv");
     string line;
     vector<vector<string>> fileContents;
     while (getline(inputFile, line))
@@ -1870,10 +1914,9 @@ Course *coursesRegistered(string rollNumber, int &registeredCount)
     }
     return courses;
 }
-
 Course *courseFinder()
 {
-    string fileName = "requiredFiles/Course_Registration_Data_Sheet.csv";
+    string fileName = "data/Course_Registration_Data_Sheet.csv";
     ifstream inputFile(fileName);
     string line;
     int courseCount = courseCounter();
@@ -1973,7 +2016,7 @@ void questionReader(Course &courseOfQuestions)
     }
 
     // Getting the name of the file
-    string fileName = "requiredFiles/Questions_for_" + nameOfCourse + ".txt";
+    string fileName = "data/Questions_for_" + nameOfCourse + ".txt";
 
     // Reading the questions from the file
     ifstream inputFile(fileName);
@@ -2207,7 +2250,6 @@ void questionReader(Course &courseOfQuestions)
     
     inputFile.close();
 }
-
 void writeQuizToFile(Course courseWithQuiz, int quizID)
 {
     string nameOfCourse = courseWithQuiz.getCourseName(); 
@@ -2265,7 +2307,6 @@ void writeQuizToFile(Course courseWithQuiz, int quizID)
 
     writeFile.close();
 }
-
 void writeResultsOfQuiz(string rollNumber, Course courseWithQuiz, int quizID, int obtainedMarks)
 {
     // Storing the results of the quiz in the file
@@ -2292,7 +2333,6 @@ void writeResultsOfQuiz(string rollNumber, Course courseWithQuiz, int quizID, in
     writeFile << "QuizID: " << quizID << endl;
     writeFile << "Marks: " << obtainedMarks << '/' << courseWithQuiz.getQuizzes()[quizID].getTotalMarks() << endl;
 }
-
 void getResultsOfQuiz(string rollNumber, string courseName, int quizID)
 {
     // Converting CourseName to have "_" instead of " "
@@ -2336,7 +2376,6 @@ void getResultsOfQuiz(string rollNumber, string courseName, int quizID)
     else
         cout << "This student has not attempted this quiz." << endl;
 }
-
 bool checkForQuizValidity(Course checkCourse, int quizID)
 {
     for (int i = 0; i < checkCourse.getTotalQuizzes(); i++)
@@ -2458,7 +2497,6 @@ void studentActions(Course &teacherCourse, Quiz &teacherCreatedQuiz)
             return;
     }    
 }
-
 void teacherActions(Course &loggedInTeacherCourse, Quiz &createdQuiz)
 {
     clearScreen();
@@ -2553,42 +2591,4 @@ void teacherActions(Course &loggedInTeacherCourse, Quiz &createdQuiz)
         else if (choice == 5)
             return;
     }
-}
-
-ostream &operator<<(ostream &output, const Time &timeToOutput)
-{
-    output << timeToOutput.hour << ":";
-    if (timeToOutput.minute < 10)
-        output << "0";
-
-    output << timeToOutput.minute;
-    return output;
-}
-istream &operator>>(istream &input, Time &timeToInput)
-{
-    cout << "Enter hours: ";
-    input >> timeToInput.hour;
-    cout << "Enter minutes: ";
-    input >> timeToInput.minute;
-
-    // Input validation
-    while (timeToInput.hour < 0 || timeToInput.hour > 23)
-    {
-        cout << "Invalid hour!" << endl;
-        input >> timeToInput.hour;
-    }
-    while (timeToInput.minute < 0)
-    {
-        cout << "Invalid minute!" << endl;
-        input >> timeToInput.minute;
-    }
-
-    // Adjusting the time for correctness
-    if (timeToInput.minute > 59)
-    {
-        timeToInput.hour++;
-        timeToInput.minute -= 60;
-    }
-
-    return input;
 }
